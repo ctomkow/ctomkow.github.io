@@ -2,8 +2,12 @@
 <html>
 <body>
 <center>
-Test Github pages, again.
+CraigCloud Status Page
 </center>
+<ul>
+	{% for file in site.data %}
+	    <li>{{ file[0] }}: curl return code {{ file[1] | strip }}</li>
+	{% endfor %}
 </body>
 </html>
 
