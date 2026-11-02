@@ -11,8 +11,8 @@
 		</h3>
 		<ul>
 			{% for file in site.data %}
-				{% if file[0] == "statuspagecheck" %}
-					<li style="list-style-type: circle">{{ file[0] }}: {{ file[1] | strip }}</li>
+				{% if file[0] == "statuspagecheckin" %}
+					<li id="statuspage" style="list-style-type: circle">{{ file[0] }}: {{ file[1] | strip }}</li>
 				{% elsif file[1] == 200 %}
 					<li style="list-style-type: '\1F7E2'">{{ file[0] }}: {{ file[1] | strip }}</li>
 				{% else %}
@@ -24,3 +24,6 @@
 </html>
 <style>
 </style>
+<script>
+const now = Date.now()
+</script>
