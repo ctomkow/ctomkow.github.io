@@ -20,8 +20,8 @@ fi;
 if [ '$drive_status' != $(cat _data/drive.yml) ]; then
 	echo $drive_status > _data/drive.yml
 fi;
-if [ '$galadriel_status' != $(cat _data/galadriel_status.yml) ]; then
-	echo $galadriel_status > _data/galadriel_status.yml
+if [ '$galadriel_status' != $(cat _data/galadriel.yml) ]; then
+	echo $galadriel_status > _data/galadriel.yml
 fi;
 
 if [[ $(date +%R) == "00:00" ]]; then
