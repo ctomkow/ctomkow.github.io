@@ -9,15 +9,19 @@ drive_status=$(curl -I https://drive.abttomkow.ca/healthz 2>/dev/null | head -n 
 galadriel_status=$(curl -I https://galadriel.abttomkow.ca/manage/account/login 2>/dev/null | head -n 1 | cut -d$' ' -f2)
 
 if [ $jellyfin_status != "200" ]; then
-	cat $jellyfin_status > _data/jellyfin.yml;
-elif [ $immich_status != "200" ]; then
-	cat $immich_status > _data/immich.yml
-elif [ $vault_status != "200" ]; then
-	cat $vault_status > _data/vault.yml
-elif [ $drive_status != "200" ]; then
-	cat $drive_status > _data/drive.yml
-elif [ $galadriel_status != "200" ]; then
-	cat $galadriel_status > _data/drive.yml
+	echo $jellyfin_status > _data/jellyfin.yml;
+fi;
+if [ $immich_status != "200" ]; then
+	echo $immich_status > _data/immich.yml
+fi;
+if [ $vault_status != "200" ]; then
+	echo $vault_status > _data/vault.yml
+fi;
+if [ $drive_status != "200" ]; then
+	echo $drive_status > _data/drive.yml
+fi;
+if [ $galadriel_status != "200" ]; then
+	echo $galadriel_status > _data/drive.yml
 fi;
 
 if [[ $(date +%R) == "00:00" ]]; then
