@@ -12,7 +12,7 @@
 		<ul>
 			{% for file in site.data %}
 				{% if file[0] == "statuspagecheckin" %}
-					<li id="statuspage" style="list-style-type: circle">{{ file[0] }}: {{ file[1] | strip }}</li>
+					<li id="statuspage" data-date="{{ file[1] }}" style="list-style-type: circle">{{ file[0] }}</li>
 				{% elsif file[1] == 200 %}
 					<li style="list-style-type: '\1F7E2'">{{ file[0] }}: {{ file[1] | strip }}</li>
 				{% else %}
@@ -26,4 +26,15 @@
 </style>
 <script>
 const now = Date.now()
+const statuspage_date = new Date(document.querySelector("#statuspage"));
+const diff = new Date(now - statuspage_date);
+if (diff.getHours >= 24) {
+	document.querySelector("#statuspage").style.listStyleType = '\1F434';
+else {
+	document.querySelector("#statuspage").style.listStyleType = '\1F7E2';
+};
+};
+
+
+
 </script>
