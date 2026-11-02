@@ -24,7 +24,7 @@ if [ "$galadriel_status" != "$(cat _data/galadriel.yml)" ]; then
 	echo $galadriel_status > _data/galadriel.yml
 fi;
 
-if [[ $(date +%R) == "21:23" ]]; then
+if [[ $(date +%R) == "00:00" ]]; then
     date -Is > _data/statuspage.yml
 fi
 
