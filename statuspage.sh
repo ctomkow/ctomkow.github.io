@@ -2,11 +2,11 @@
 
 cd ~/ctomkow.github.io
 
-jellyfin_status=$(curl -I https://jellyfin.abttomkow.ca/web/ 2>/dev/null | head -n 1 | cut -d$' ' -f2)
-immich_status=$(curl -I https://immich.abttomkow.ca 2>/dev/null | head -n 1 | cut -d$' ' -f2)
-vault_status=$(curl -I https://vault.abttomkow.ca 2>/dev/null | head -n 1 | cut -d$' ' -f2)
-drive_status=$(curl -I https://drive.abttomkow.ca/healthz 2>/dev/null | head -n 1 | cut -d$' ' -f2)
-galadriel_status=$(curl -I https://galadriel.abttomkow.ca/manage/account/login 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+jellyfin_status=$(curl -I --connect-timeout=1 https://jellyfin.abttomkow.ca/web/ 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+immich_status=$(curl -I --connect-timeout=1 https://immich.abttomkow.ca 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+vault_status=$(curl -I --connect-timeout=1 https://vault.abttomkow.ca 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+drive_status=$(curl -I --connect-timeout=1 https://drive.abttomkow.ca/healthz 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+galadriel_status=$(curl -I --connect-timeout=1 https://galadriel.abttomkow.ca/manage/account/login 2>/dev/null | head -n 1 | cut -d$' ' -f2)
 
 if [ $jellyfin_status != $(cat _data/jellyfin.yml) ]; then
 	echo $jellyfin_status > _data/jellyfin.yml;
