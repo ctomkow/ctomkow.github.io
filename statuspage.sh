@@ -25,7 +25,7 @@ if [ "$galadriel_status" != "$(cat _data/galadriel.yml)" ]; then
 fi;
 
 if [[ $(date +%R) == "00:00" ]]; then
-    date -Is > _data/statuspagecheck.yml
+    date -Is > _data/statuspagecheckin.yml
 fi
 
 git add . && git commit -m "status update" && git push
